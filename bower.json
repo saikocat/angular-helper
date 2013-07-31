@@ -1,0 +1,13 @@
+{
+  "name": "AngularJS-Helper",
+  "version": "0.0.1",
+  "ignore": [
+    "node_modules",
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "angular": "~1.0.7",
+    "lodash": "~1.3.1"    
+  }
+}
