@@ -1,4 +1,4 @@
-var sharedConfig = require('./karma-shared.conf');
+var sharedConfig = require(__dirname + '/karma-shared.conf');
 
 module.exports = function(config) {
   sharedConfig(config);
