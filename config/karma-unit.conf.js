@@ -5,6 +5,7 @@ module.exports = function(config) {
 
   config.set({
     files: [
+      'components/lodash/lodash.js',
       'components/angular/angular.js',
       'components/angular-mocks/angular-mocks.js',
       'src/*.js',
