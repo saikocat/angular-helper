@@ -12,6 +12,17 @@
       return _.indexOf(haystack, needle, fromIndex);
     };
 
+    CollectionHelper.prototype.remove = function(list, valueOrPredicate) {
+      var self = this;
+      var predicate = angular.isFunction(valueOrPredicate) ? valueOrPredicate : function (value) { return angular.equals(value, valueOrPredicate); };
+      var index = _.findIndex(list, predicate);
+      if (index >= 0) {
+        return self.removeAtIndex(list, index);
+      } else {
+        return undefined;
+      }
+    };
+
     CollectionHelper.prototype.removeAll = function(list, valueOrPredicate) {
       var predicate = angular.isFunction(valueOrPredicate) ? valueOrPredicate : function (value) { return angular.equals(value, valueOrPredicate); };
       var removedValues = [];

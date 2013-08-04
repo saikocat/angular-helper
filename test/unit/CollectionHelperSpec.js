@@ -34,6 +34,26 @@
       });
     });
 
+    describe('"remove" function', function() {
+      var haystack;
+
+      beforeEach(function() {
+        haystack = [1, 9, 4, 2, 10, 4];
+      });
+
+      it('remove the first occurrence given a specified element', function() {
+        var result = service.remove(haystack, 4);
+        expect(haystack).toEqual([1, 9, 2, 10, 4]);
+        expect(result).toEqual(4);
+      });
+
+      it('remove the first occurrence given an identity function', function() {
+        var result = service.remove(haystack, function(item) { return item % 2 == 0; });
+        expect(haystack).toEqual([1, 9, 2, 10, 4]);
+        expect(result).toEqual(4);
+      });
+    });
+
     describe('"removeAtIndex" function', function() {
       var haystack = [0, 1, 2, 3, 4];
 
