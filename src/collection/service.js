@@ -68,6 +68,13 @@
       }
     };
 
+    CollectionHelper.prototype.retainAll = function(list, arrayOrPredicate) {
+      var self = this;
+      var predicate = angular.isFunction(arrayOrPredicate) ? arrayOrPredicate : function (value) { return self.indexOf(arrayOrPredicate, value) >= 0; };
+      var rejects = _.reject(list, predicate);
+      return self.removeAllInCollection(list, rejects);
+    };
+
     return new CollectionHelper();
   }]);
 

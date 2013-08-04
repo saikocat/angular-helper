@@ -107,6 +107,25 @@
 
     });
 
+    describe('"retainAll" function', function() {
+      var haystack;
+
+      beforeEach(function() {
+        haystack = [1, 9, 4, 2, 10, 4];
+      });
+
+      it('retains only the elements in this list that are contained in the specified collection', function() {
+        var removedValues = service.retainAll(haystack, [9, 4]);
+        expect(haystack).toEqual([9, 4, 4]);
+      });
+
+      it('retains only the elements in this list that match the identity function', function() {
+        var removedValues = service.retainAll(haystack, function(item) { return item % 2 == 0;});
+        expect(haystack).toEqual([4, 2, 10, 4]);
+      });
+
+    });
+
   });
 
 }());
