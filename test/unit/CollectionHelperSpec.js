@@ -34,6 +34,13 @@
       });
     });
 
+    describe('"removeAtIndex" function', function() {
+      it('remove item at given index and return removed value', function() {
+        var result = service.removeAtIndex([0, 1, 2, 3, 4], 2);
+        expect(result).toEqual(2);
+      });
+    });
+
   });
 
 }());

@@ -12,6 +12,13 @@
       return _.indexOf(haystack, needle, fromIndex);
     };
 
+    CollectionHelper.prototype.removeAtIndex = function(list, index) {
+      var removedValue = list[index];
+      list.splice(index, 1);
+      return removedValue;
+    };
+
+
     CollectionHelper.prototype.replace = function(list, oldItem, newItem, fromIndex) {
       var index = _.indexOf(list, oldItem, fromIndex);
       if (index >= 0) {
