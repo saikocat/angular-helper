@@ -12,6 +12,20 @@
       return _.indexOf(haystack, needle, fromIndex);
     };
 
+    CollectionHelper.prototype.removeAll = function(list, valueOrPredicate) {
+      var predicate = angular.isFunction(valueOrPredicate) ? valueOrPredicate : function (value) { return angular.equals(value, valueOrPredicate); };
+      var removedValues = [];
+      for (var i = 0; i < list.length; i++) {
+        var value = list[i];
+        if (predicate(value)) {
+          removedValues.push(value);
+          list.splice(i, 1);
+          i--;
+        }
+      }
+      return removedValues;
+    };
+
     CollectionHelper.prototype.removeAtIndex = function(list, index) {
       var removedValue = list[index];
       list.splice(index, 1);

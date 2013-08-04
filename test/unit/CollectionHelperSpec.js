@@ -41,6 +41,28 @@
       });
     });
 
+    describe('"removeAll" function', function() {
+      var haystack,
+          removeItem;
+
+      beforeEach(function() {
+        haystack = [1, 9, 4, 2, 10, 4];
+        removeItem = 4;
+      });
+
+      it('remove all items with same value in list', function() {
+        var removedValues = service.removeAll(haystack, removeItem);
+        expect(haystack).toEqual([1, 9, 2, 10]);
+        expect(removedValues).toEqual([4, 4]);
+      });
+
+      it('remove all items in list that passed the identity function', function() {
+        var removedValues = service.removeAll(haystack, function(item) { return item % 2 == 0; });
+        expect(haystack).toEqual([1, 9]);
+        expect(removedValues).toEqual([4, 2, 10, 4]);
+      });
+    });
+
   });
 
 }());
