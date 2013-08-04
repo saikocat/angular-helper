@@ -26,6 +26,23 @@
       return removedValues;
     };
 
+    CollectionHelper.prototype.removeAllInCollection = function(list, arrayOfValues) {
+      var self = this;
+
+      // Remove everything if passed zero args
+      if (arrayOfValues === undefined) {
+        var allValues = list.slice(0);
+        list.splice(0, list.length);
+        return allValues;
+      }
+      // Arg is interpreted as array of values
+      if (!arrayOfValues)
+        return [];
+      return self.removeAll(list, function(value) {
+        return (self.indexOf(arrayOfValues, value)) >= 0;
+      });
+    };
+
     CollectionHelper.prototype.removeAtIndex = function(list, index) {
       var removedValue = list[index];
       list.splice(index, 1);

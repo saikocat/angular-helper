@@ -63,6 +63,27 @@
       });
     });
 
+    describe('"removeAllInCollection" function', function() {
+      var haystack;
+
+      beforeEach(function() {
+        haystack = [1, 9, 4, 2, 10, 4];
+      });
+
+      it('remove everything if passed zero args', function() {
+        var removedValues = service.removeAllInCollection(haystack);
+        expect(haystack).toEqual([]);
+        expect(removedValues).toEqual([1, 9, 4, 2, 10, 4]);
+      });
+
+      it('remove from this list all the elements that are contained in the specified collection', function() {
+        var removedValues = service.removeAllInCollection(haystack, [1, 9, 4]);
+        expect(haystack).toEqual([2, 10]);
+        expect(removedValues).toEqual([1, 9, 4, 4]);
+      });
+
+    });
+
   });
 
 }());
