@@ -11,7 +11,7 @@ module.exports = function(config) {
       'src/*.js',
       'src/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/unit/**/*.js'
     ],
 
     junitReporter: {
