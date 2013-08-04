@@ -35,9 +35,12 @@
     });
 
     describe('"removeAtIndex" function', function() {
+      var haystack = [0, 1, 2, 3, 4];
+
       it('remove item at given index and return removed value', function() {
-        var result = service.removeAtIndex([0, 1, 2, 3, 4], 2);
+        var result = service.removeAtIndex(haystack, 2);
         expect(result).toEqual(2);
+        expect(haystack).toEqual([0, 1, 3, 4]);
       });
     });
 
